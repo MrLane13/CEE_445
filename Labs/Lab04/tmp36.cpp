@@ -17,6 +17,7 @@ int readAnalog(int number) {
 }
 
 float getTemperature(int adc_value) {
+    //float cur_voltage = adc_value * (5.0f/2048.0f);
     float cur_voltage = adc_value * (1.80f/4096.0f);
     float diff_degreesC = (cur_voltage-0.75f)/(0.01f);
     return (25.0f + diff_degreesC);
@@ -24,11 +25,13 @@ float getTemperature(int adc_value) {
 
 int main(int argc, char* argv[]) {
     int val1 = 0;
-    cout << "Starting the temperature sensor program" << endl;
-    if(argc>1) val1 = atoi(argv[1]);
+    //cout << "Starting the temperature sensor program" << endl;
+    //if(argc>1) val1 = atoi(argv[1]);
     int value = readAnalog(0);
     int temp = getTemperature(value);
-    cout << "Th ADC value was " << value << " out of 4096." << endl;
-    cout << "The temperature is: " << temp << " degrees Celcius." << endl;
+    cout << temp;   // This is in degrees Celsius
+    //cout << "Th ADC value was " << value << " out of 4096." << endl;
+    //cout << "The temperature is: " << temp << " degrees Celcius." << endl;
+    //cout << "The temperature is: " << temp*(9/5)+32 << " degrees F" << endl;
     return 0;
 }
