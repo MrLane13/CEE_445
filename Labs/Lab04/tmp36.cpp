@@ -24,12 +24,12 @@ float getTemperature(int adc_value) {
 }
 
 int main(int argc, char* argv[]) {
-    int val1 = 0;
-    //cout << "Starting the temperature sensor program" << endl;
-    //if(argc>1) val1 = atoi(argv[1]);
     int value = readAnalog(0);
     int temp = getTemperature(value);
-    cout << temp;   // This is in degrees Celsius
+    //cout << temp;   // This is in degrees Celsius
+    int myVar = temp*1.8;
+    int finalTempF = myVar+32;
+    cout << finalTempF;// This is in degrees Fahrenheit
     //cout << "Th ADC value was " << value << " out of 4096." << endl;
     //cout << "The temperature is: " << temp << " degrees Celcius." << endl;
     //cout << "The temperature is: " << temp*(9/5)+32 << " degrees F" << endl;
